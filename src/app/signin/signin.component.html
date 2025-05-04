@@ -1,0 +1,57 @@
+<div class="container-fluid d-flex justify-content-center border" style="height: 100vh;">
+  <!-- <div class="card h-50" style="width: 50rem;">
+    <div class="card-body h-100">
+      <h5 class="card-title">Reactive Form</h5>
+
+      <form class="my-10" [formGroup]="form" (ngSubmit)="handleSubmit($event)">
+        <div class="form-group p-1">
+          <label for="exampleInputEmail1">Name</label>
+          <input class="form-control" type="text" name="name" id="name" placeholder="Enter Your name" formControlName="name">
+          <span *ngIf="name?.hasError('required')" class="text-danger fs-6">Name is required.</span>
+          <span *ngIf="name?.invalid &&(name?.dirty  || name?.touched)" class="text-danger fs-6">
+            Invalid Name</span>
+
+        </div>
+        <div class="form-group p-1">
+          <label for="exampleInputPassword1">Password</label>
+          <input class="form-control" type="password" name="name" id="name" placeholder="Enter Your password" formControlName="password">
+          <span *ngIf="password?.hasError('required')" class="text-danger fs-6">password is required.</span>
+          <span *ngIf="password?.invalid" class="text-danger fs-6">
+            Invalid password</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary m-1">Submit</button>
+      </form>
+
+    </div>
+  </div> -->
+
+
+
+
+
+  <div class="card h-50" style="width: 50rem;">
+    <div class="card-body h-100">
+      <h5 class="card-title">Template Driven Form</h5>
+
+      <form class="my-10" #userForm="ngForm" (ngSubmit)="handleFormSubmitTemplateDriven(userForm.value)">
+        <div class="form-group p-1">
+          <label for="exampleInputEmail1">Name</label>
+          <input #name="ngModel" class="form-control" required type="text" name="name" id="name" placeholder="Enter Your name" ngModel>
+          <span class="fs-6 text-danger" *ngIf="name?.invalid && name.touched"> Name is required
+
+          </span>
+        </div>
+        <div class="form-group p-1">
+          <label for="exampleInputPassword1">Password</label>
+          <input minlength="8" required #password="ngModel" class="form-control" type="password" name="password" id="password" placeholder="Enter Your password" ngModel>
+          <span class="fs-6 text-danger" *ngIf="password?.invalid && password.touched">Min 8 characters required</span>
+
+        </div>
+
+        <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary m-1">Submit</button>
+      </form>
+
+    </div>
+  </div>
+</div>

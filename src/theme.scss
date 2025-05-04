@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=Cascadia+Code:400,500,600,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Cascadia Code", sans-serif !important;
+  transition: background-color 0.5s linear, color 0.3s linear;
+}
+$primaryColor: rgb(29, 27, 27);
+$secondaryColor: #e4dcdc;
+body {
+  background-color: rgb(243, 239, 239) !important;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  // p,
+  span {
+    color: $primaryColor;
+  }
+  button {
+    color: $secondaryColor !important;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

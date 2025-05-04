@@ -1,0 +1,16 @@
+<div
+  class="container d-flex justify-content-center flex-column align-items-center"
+>
+  <p>
+    {{ title }}
+  </p>
+  <br />
+  @switch (true) { @case (age<18) {
+  <p>Teenager</p>
+
+  } @case (age >=18 && age<=60){
+  <p>Adult Man</p>
+  } @default {
+  <p>Senior Citizen</p>
+  } }
+</div>

@@ -1,0 +1,30 @@
+<button class="btn btn-primary m-3" (click)="handleToggle()">
+  {{showCounter ? "HIDE KRO DIV KO":"SHOW KRO DIV KO"}}
+</button>
+
+
+@if(showCounter){
+<div class="container-fluid d-flex justify-content-center flex-column  align-items-center">
+  <h1>{{count}}</h1>
+  <div>
+    <button class="btn btn-primary m-3" (click)="handleCounter($event,'add')">Add</button>
+    <button class="btn btn-secondary m-3" (click)="handleCounter($event,'reset')">Reset</button>
+    <button class="btn btn-danger m-3" (click)="handleCounter($event,'minus')">Remove</button>
+  </div>
+  <input type="text" value="{{name}}" (input)="handleInput($event)">
+</div>
+}
+@else {
+<div>HIDDEN</div>
+}
+
+<div *ngIf="showCounter; else elseBlock" [ngStyle]="{ color:color }">
+  HOLA AMIGO
+</div>
+
+<ng-template #elseBlock>
+  <span>
+    GOODBYE AMIGO
+  </span>
+
+</ng-template>

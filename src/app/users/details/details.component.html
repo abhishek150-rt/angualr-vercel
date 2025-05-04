@@ -1,0 +1,49 @@
+<div class="card mb-4 border border-3 cursor-pointer" (click)="handleClick(user?.id)">
+  <div class="card-body">
+    <!-- Circular Image -->
+    <div class="d-flex align-items-center mb-3">
+      <img src="{{ user?.image }}" alt="User Image" class="rounded-circle" width="50" height="50">
+      <div class="ms-3">
+        <h5 class="card-title">
+          {{ user?.firstName | uppercase }}
+          {{ user?.lastName | uppercase }}
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          {{ user?.email }}
+        </h6>
+      </div>
+    </div>
+
+    <p class="card-text mb-1"><strong>Age:</strong>
+      {{ user?.age }}
+    </p>
+    <p class="card-text mb-1"><strong>Gender:</strong>
+      {{ user?.gender }}
+    </p>
+    <p class="card-text mb-1 text-danger"><strong>Phone:</strong>
+      {{ user?.phone | currenyConverter }}
+    </p>
+
+    <p class="card-text mb-1">
+      <strong>Address:</strong>
+      {{ user?.address?.street }},
+      {{ user?.address?.city }},
+      {{ user?.address?.state }} -
+      {{ user?.address?.zip }},
+      {{ user?.address?.country }}
+    </p>
+
+    <p class="card-text mb-1"><strong>Status:</strong>
+      <span [class.text-success]="user?.isActive" [class.text-danger]="!user?.isActive">
+        {{ user?.isActive ? 'Active' : 'Inactive' }}
+      </span>
+    </p>
+
+    <p class="card-text mb-2"><strong>Roles:</strong>
+      {{ user?.roles?.join(', ') }}
+    </p>
+
+    <p class="card-text"><small class="text-muted">Joined:
+        {{ user?.createdAt | date:'medium' }}</small></p>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    @for (item of services; track item.id; let isFirst = $first) {
+    @if (item.price && item.price > 150) {
+    <div class="col-md-4 mb-4 d-flex justify-content-center">
+      <div class="card shadow-sm" style="width: 18rem;">
+        <img class="card-img-top" [src]="item.src" [alt]="item.name" style="height: 180px; object-fit: cover;">
+        <div class="card-body">
+          <h5 [ngStyle]="{ color: isFirst ? 'red' : 'blue' }">
+            {{ item.name }}
+            (First:
+            {{ isFirst }})
+          </h5>
+          <p class="card-text">
+            {{ item.description }}
+          </p>
+          <div class="d-flex justify-content-center">
+            <span class="btn btn-primary mx-2 text-white">
+              ₹
+              {{ item.price }}
+
+            </span>
+            <a routerLink="/details/{{item.id}}" class="btn btn-secondary mx-2 text-white">
+              Buy Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+    }
+    @empty {
+    <h3 class="text-center">No services available</h3>
+    }
+  </div>
+</div>

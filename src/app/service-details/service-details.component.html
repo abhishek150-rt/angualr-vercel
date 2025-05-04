@@ -1,0 +1,28 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <img [src]="selectedService?.src" [alt]="selectedService?.name" class="card-img-top" style="max-height: 300px; object-fit: cover" />
+        <div class="card-body">
+          <h3 class="card-title text-primary">
+            {{ selectedService?.name || "" }}
+            {{ selectedService?.src || "" }}
+          </h3>
+          <h5 class="text-muted">₹
+            {{ selectedService?.price }}
+          </h5>
+          <p class="mt-3"><strong>Brief:</strong>
+            {{ selectedService?.brief }}
+          </p>
+          <p><strong>Description:</strong>
+            {{ selectedService?.description }}
+          </p>
+          <a routerLink="/dashboard/services" class="btn btn-outline-secondary mt-3">
+            ← Back to Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

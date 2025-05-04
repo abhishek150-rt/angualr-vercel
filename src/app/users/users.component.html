@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row flex justify-content-end">
+    <div class="col-lg-2 flex justify-content-end">
+      <button class="btn btn-primary" (click)="handleAddUser()">Add New User</button>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center mt-2 overflow-hidden">
+    @for (item of users; track $index) {
+    <div class="col-lg-3">
+      <app-details [user]="item" [userType]="'admin'" (getUserById)="handleClick($event)" #child></app-details>
+    </div>
+    }
+    @empty {
+    <div>No user present</div>
+    }
+  </div>
+</div>
