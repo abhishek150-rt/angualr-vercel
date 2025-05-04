@@ -1,7 +1,5 @@
 <app-header></app-header>
-<h1>
-  {{ loading$ | async }}
-</h1>
+
 <ng-container *ngIf="loading$ | async">
   <app-loader></app-loader>
   <!-- other elements -->
